@@ -67,7 +67,7 @@
 	  align: textureAlign,
 	  scale: { x: 1, y: 1 }
 	}, {
-	  file: 'img/heat_map6.jpg',
+	  file: 'img/heat_map-1.jpg',
 	  name: 'maps',
 	  align: textureAlign,
 	  scale: { x: 0.8, y: 0.8 }
@@ -77,7 +77,7 @@
 	  repeat: true,
 	  fill: false
 	}];
-	
+
 	var getTextureIndex = function () {
 	  var i = textures.length;
 	  return function () {
