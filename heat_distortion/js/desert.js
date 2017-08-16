@@ -67,7 +67,7 @@
 	  align: textureAlign,
 	  scale: { x: 1, y: 1 }
 	}, {
-	  file: 'img/heat_map-1.jpg',
+	  file: 'img/heat_map.jpg',
 	  name: 'maps',
 	  align: textureAlign,
 	  scale: { x: 0.8, y: 0.8 }
