@@ -30,7 +30,10 @@
 		</div>
 	</div>
 	<!-- /container -->
-	<script src="js/desert.js"></script>
+	<script type="text/javascript">
+        var cachebuster = Math.round(new Date().getTime() / 1000);
+        document.write('<scr'+'ipt type="text/javascript" src="js/desert.js?cb=' +cachebuster+'"></scr' + 'ipt>');
+	</script>
 </body>
 
 </html>
