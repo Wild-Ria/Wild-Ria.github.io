@@ -2,53 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10b7f0af-ac4e-459e-b2c2-743b0e85f22c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/cooking.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/desert.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/flight.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/normalize.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/water.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/codropsicons/codropsicons.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/codropsicons/codropsicons.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/codropsicons/codropsicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/codropsicons/codropsicons.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fonts/codropsicons/license.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/air-travel-title-medium.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/air-travel-title-small.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/air-travel-title.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/car.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/car_map.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/cooking-blur.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/cooking-maps.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/cooking.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desert-maps.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desert-title-medium.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desert-title-small.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desert-title.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desert.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flight-depth.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flight-mask.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flight.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/heat_map3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/heat_map4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/heat_map5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/heat_map6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/noise.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/water-maps.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/water.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/cooking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/cooking.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/desert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/desert.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/flight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/flight.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/water.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/water.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heat_distortion/index2.html" afterPath="$PROJECT_DIR$/heat_distortion/index2.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -69,17 +23,27 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
-              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+              <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/heat_distortion/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index2.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/heat_distortion/index2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -102,6 +66,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/iframe.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/heat_distortion/index2.html" />
       </list>
     </option>
   </component>
@@ -189,12 +154,12 @@
       <option name="presentableId" value="Default" />
       <updated>1502873030417</updated>
       <workItem from="1502873031575" duration="490000" />
-      <workItem from="1502873669930" duration="2066000" />
+      <workItem from="1502873669930" duration="2140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2556000" />
+    <option name="totallyTimeSpent" value="2630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-22" width="1280" height="822" extended-state="6" />
@@ -264,7 +229,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -273,6 +238,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heat_distortion/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
           <folding />
         </state>
       </provider>
