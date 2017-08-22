@@ -62,17 +62,17 @@
 	
 	var textureAlign = { x: 0.9, y: 0.9 };
 	var textures = [{
-	  file: 'img/car.jpg',
+	  file: 'https://i.loopme.me/html/heat_distortion/img/car.jpg',
 	  name: 'image',
 	  align: textureAlign,
 	  scale: { x: 1, y: 1 }
 	}, {
-	  file: 'img/heat_map.jpg',
+	  file: 'https://i.loopme.me/html/heat_distortion/img/heat_map.jpg',
 	  name: 'maps',
 	  align: textureAlign,
 	  scale: { x: 0.8, y: 0.8 }
 	}, {
-	  file: 'img/noise.png',
+	  file: 'https://i.loopme.me/html/heat_distortion/img/noise.png',
 	  name: 'noise',
 	  repeat: true,
 	  fill: false
@@ -107,6 +107,7 @@
 	  };
 	
 	  var titleImage = new Image();
+	  titleImage.crossOrigin = "anonymous";
 	  titleImage.addEventListener('load', function (event) {
 	    var dpi = haze.dpi;
 	    canvas.width = titleImage.width * dpi;
@@ -130,7 +131,7 @@
 	  return value;
 	};
 	
-	var contents = [loadContent('img/desert-title.svg', document.querySelector('.background__title--big')), loadContent('img/desert-title-medium.svg', document.querySelector('.background__title--medium')), loadContent('img/desert-title-small.svg', document.querySelector('.background__title--small'))];
+	var contents = [loadContent('https://i.loopme.me/html/heat_distortion/img/desert-title.svg', document.querySelector('.background__title--big')), loadContent('https://i.loopme.me/html/heat_distortion/img/desert-title-medium.svg', document.querySelector('.background__title--medium')), loadContent('https://i.loopme.me/html/heat_distortion/img/desert-title-small.svg', document.querySelector('.background__title--small'))];
 
 	var getContent = function () {
 	  var lastContent = {};
@@ -654,6 +655,7 @@
 	
 	  return new Promise(function (resolve, reject) {
 	    var image = new Image();
+	    image.crossOrigin = "anonymous";
 	    image.addEventListener('load', function (event) {
 	      haze.gl.createUniform('1i', options.name, index);
 	      resolve(processTexture(haze, index, image, options));
