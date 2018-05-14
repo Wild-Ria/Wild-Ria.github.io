@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LoopMe survey</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<style type="text/css">
+    /*CUSTOM CHECKBOXES*/
+    [type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+.LM_survey .LM_questionnaire label {
+    display: block;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000;
+    border-radius: 100%;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #ed1c24;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    border-radius: 100%;
+    /*-webkit-transition: all 0.01s ease;
+    transition: all 0.01s ease;*/
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.LM_info_sharing [type="radio"]:checked + label:before,
+.LM_info_sharing [type="radio"]:not(:checked) + label:before {
+    left: 0;
+    top: 0px;
+}
+.LM_info_sharing [type="radio"]:checked + label:after, 
+.LM_info_sharing [type="radio"]:not(:checked) + label:after {
+    top: 3px;
+    left: 3px;
+}
+/*END OF CUSTOM CHECKBOXES*/
+html{
+    overflow:hidden;
+    -webkit-text-size-adjust:100%;
+    -webkit-tap-highlight-color:transparent
+}
+*{
+    margin:0;
+    padding:0
+}
+.LM_policy_text::-webkit-scrollbar{
+    width:6px
+}
+.LM_policy_text::-webkit-scrollbar-track{
+    background:#dedcdc
+}
+.LM_policy_text::-webkit-scrollbar-thumb{
+    background:#bdbcbc
+}
+.LM_html_container{
+    display: grid;
+    grid-template-rows: 100px 1fr 50px;
+    margin:auto;
+    top:0;
+    bottom:0;
+    width:100%;
+    max-height:100%;
+    overflow:hidden;
+    color:#000;
+    position: absolute;
+    background:#ffffff
+}
+.questions, .LM_survey {
+    overflow: hidden;
+}
+.LM_hidden{
+    display:none
+}
+a{
+    text-decoration:none
+}
+body{
+    font: 20px "Roboto", sans-serif
+}
+.LM_header_top {
+    background-color: #363636;
+    color: #fff;
+    height: 50px;
+}
+.LM_header_top span {
+    font-size: 1em;
+    letter-spacing: 2px;
+    float: left;
+    line-height: 50px;
+    padding-left: 10px;
+}
+.LM_logo {
+    height: 28px;
+    padding: 0 10px;
+    margin-top: 13px;
+    float: left;
+}
+.LM_survey{
+    display:none;
+    height:100%
+}
+.LM_progressbar {
+    height: 5px;
+    background-color: #8e979f;
+    width: 100%;
+}
+.LM_progressbar > div {
+    background-color: #ed1c24;
+    height: 100%;
+    width: 0;
+}
+.LM_pages {
+    font-size: .77em;
+    color: #8e979f;
+    padding: 10px 0;
+}
+.LM_pages, .LM_survey, .LM_footer {
+    margin: 0 auto;
+    width: 95%;
+}
+.LM_title {
+    font-size: 1.33em;
+    color: #131313;
+    min-height: 73px; /*for the maximum of symbols in question*/
+}
+.LM_questionnaire {
+    margin-top: 3%;
+    display: grid;
+    list-style: none;
+}
+.LM_questionnaire li {
+    font-size: 1.13em;
+    padding: 13px 10px;
+}
+.LM_footer {
+    align-self: center;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    width: 94%;
+}
+.LM_footer_text {
+    font-size: .6em;
+    color: #8e979f;
+    position: absolute;
+    bottom: 10px;
+}
+.LM_countdown{
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    right:0;
+    top:0;
+    width:60px;
+    height:60px;
+    line-height:60px;
+    font-size: 1.33em;
+    z-index:9999999999
+}
+.LM_policy_button {
+    font-size: .77em;
+}
+.LM_policy_text{
+    overflow-y:scroll;
+    margin: 0 5% 5%;
+    overflow-x: hidden;
+    padding: 0 2%;
+}
+.LM_policy_close, .LM_finish {
+    display: none;
+    background: #ed1c24;
+    width: 80px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    padding: 6px;
+    bottom: 35px;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: .77em;
+    font-weight: bold;
+}
+.LM_finish[disabled] {
+    background: #f99f9f;
+}
+.LM_feedback {
+    display: none;
+    height: 100%;
+}
+.LM_dialog_bubble {
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    font-size: 1.33em;
+    text-align: center;
+    color: #131313;
+}
+.LM_info_sharing {
+    position: absolute;
+    height: 33%;
+    background: #edebeb;
+    color: #454444;
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 5%;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    width: 84%;
+}
+.LM_info_sharing > div {
+    padding: 5% 0;
+}
+p {
+    font-family: sans-serif;
+}
+.LM_info_sharing--radiobuttons label {
+    padding-right: 13px;
+}
+
+label.LM_select {
+    position: relative;
+    display: inline-block;
+    border-bottom: 2px solid;
+}
+
+    .LM_select select {
+        display: inline-block;
+        border: none;
+        padding: 4px 3px 3px 10px;
+        margin: 0;
+        margin-left: 10px;
+        font: inherit;
+        outline:none; /* remove focus ring from Webkit */
+        line-height: 1.2;
+        background: transparent;
+        
+        -webkit-appearance:menulist-text; /* remove the strong OSX influence from Webkit */
+
+    }
+
+    /* for Webkit's CSS-only solution */
+    @media screen and (-webkit-min-device-pixel-ratio:0) { 
+        .LM_select select {
+            padding-right:30px;    
+        }
+    }
+    
+    /* Since we removed the default focus styles, we have to add our own */
+    .LM_select select:focus {
+       
+    }
+    
+    /* Select arrow styling */
+    .LM_select:after, .LM_info_sharing--title:after  {
+        content: "▼";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 60%;
+        line-height: 30px;
+        padding: 0 7px;
+        color: #000;
+        pointer-events:none;
+        
+    }
+
+    .LM_info_sharing--title:after {
+        top: -4px;
+    }
+    
+    .no-pointer-events .LM_select:after {
+        content: none;
+    }
+
+
+.LM_web .LM_countdown{
+    display:none
+}
+.LM_info_sharing--android_select {
+    display: none;
+}
+.LM_info_sharing--overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(1,1,1,.8);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+}
+.LM_info_sharing--options {
+    list-style: none;
+    display: none;
+    position: fixed;
+    background: #fff;
+    width: 90%;
+    left: 5%;
+    z-index: 100;
+    top: 50%;
+    border-radius: 3px;
+    transform: translateY(-50%);
+}
+.LM_info_sharing--options li {
+    padding: 3%;
+    border-bottom: 1px solid grey;
+}
+.LM_info_sharing--android_select .LM_info_sharing--options label {
+    display: block;
+}
+.LM_info_sharing--title {
+    position: relative;
+    border-bottom: 2px solid;
+    padding-bottom: 3px;
+}
+.LM_selected {
+    display: inline-block;
+    padding: 0 20px 0 10px;;
+    min-width: 40px;
+}
+@media (max-width: 360px) {
+    body {
+        font-size: 14px;
+    }
+    .LM_footer_text {
+        font-size: .75em;
+    }
+}
+@media (max-width: 320px) {
+    body {
+        font-size: 13px;
+    }
+    .LM_questionnaire li {
+        padding: 3% 4%;
+    }
+}
+@media (orientation: portrait){
+    
+}
+@media (orientation: landscape) {
+    .LM_html_container {
+        grid-template-rows: 90px 1fr 50px;
+    }
+    .LM_policy_button {
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        display: block !important;
+    }
+    .LM_policy_text {
+        margin: 0 2% 5% 1%;
+    }
+    .LM_title {
+        min-height: 50px;
+    }
+    .LM_questionnaire li {
+        padding: 10px;
+    }
+    .LM_info_sharing {
+        display: grid;
+        grid-template-columns: 1fr 1fr;        
+        padding: 3% 5%;
+        height: 40%;
+        bottom: 30px;
+    }
+    .LM_info_sharing--question {
+        grid-column: span 2;
+    }
+    .LM_info_sharing > div {
+        padding: 0;
+        align-self: center;
+    }
+    .LM_finish {
+        right: 15px;
+        bottom: 45px;
+    }
+    .LM_survey[data-answers-number="4"] .LM_questionnaire, 
+    .LM_survey[data-answers-number="5"] .LM_questionnaire, 
+    .LM_survey[data-answers-number="6"] .LM_questionnaire {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /**********WEB LANDSCAPE***********/
+    body .LM_web {
+        font-size: 18px;
+    }
+}
+
+
+	</style>
+	<link rel="stylesheet" href="https://i.loopme.me/html/close/closeButton.css">
+</head>
+<body>
+<script>
+    var survey = /*SURVEY*/{"questions":[{"text":"Question 1","answers":[{"text":"answer 1","outcome":"neutral"},{"text":"answer 2","outcome":"positive"},{"text":"answer 3","outcome":"negative"},{"text":"answer 4","outcome":"neutral"},{"text":"answer 5","outcome":"neutral"}, {"text":"answer 6","outcome":"neutral"}]},{"text":"Question 2","answers":[{"text":"answer 1","outcome":"neutral"},{"text":"answer 2","outcome":"positive"},{"text":"definitely disagree","outcome":"neutral"}]},{"text":"Question 3 build tactical catalysts for change through dynamic e-tailers. Quickly administrate intui","answers":[{"text":"build tactical ca","outcome":"neutral"},{"text":"build tactical","outcome":"positive"}]},{"text":"Question 4","answers":[{"text":"build tactical ca","outcome":"neutral"},{"text":"build tactical cs","outcome":"positive"}]},{"text":"Question 5 build tactical catalysts for change through dynamic e-tailers. Quickly administrate intui","answers":[{"text":"build tactical va","outcome":"positive"},{"text":"build tactical cb","outcome":"neutral"},{"text":"build tactical ca","outcome":"negative"},{"text":"Wwwwwwwwwwwwwwwww","outcome":"neutral"},{"text":"Qwwwwwwwwwwwwwwww","outcome":"positive"}, {"text":"answer 6 www","outcome":"neutral"}]}],"hasThankYouPage":true,"shouldRandomizeAnswersOrder":false,"autoCloseTime":35,"closeButtonDelay":5,"templateName":"rich_media"}/*END SURVEY*/;
+    var closeButtonDelay = survey.closeButtonDelay;
+    var hasThankYouPage = survey.hasThankYouPage;
+    var shouldRandomizeAnswersOrder = survey.shouldRandomizeAnswersOrder;
+</script>
+<div class="LM_html_container">
+	<header class="LM_header">
+		<div class="LM_header_top">
+            <img alt="loopMe logo" class="LM_logo" src="data:image/png;base64,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" />
+            <span>Survey</span>
+        </div>
+        <div class="LM_progress">
+            <div class="LM_progressbar">
+                <div></div>
+            </div>
+            <div class="LM_pages">
+                Question 
+                <span class="LM_current_page"></span> of
+                <span class="LM_pages_total"></span>
+            </div>
+        </div>
+	</header>
+	<!--__SURVEY__-->
+	<div class="questions"></div>
+	<div class="LM_feedback">
+		<p class="LM_dialog_bubble">Thank you for participating!</p>
+        <div class="LM_info_sharing">
+            <p class="LM_info_sharing--question">Would you like to share some info about yourself?</p>
+            <div class="LM_info_sharing--radiobuttons">
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
+            </div>
+            <div class="LM_info_sharing--age_select">
+                <label class="LM_select">
+                <span>Choose your age</span>                    
+                    <select>
+                        <option>18 - 24</option>
+                        <option>25 - 34</option>
+                        <option>35 - 44</option>
+                        <option>45 - 54</option>
+                        <option>55 - 64</option>
+                        <option>65+</option>
+                        <option>13 - 17</option>
+                    </select>
+                </label>
+            </div>
+            <div class="LM_info_sharing--android_select">
+                <div class="LM_info_sharing--overlay"></div>
+                <div class="LM_info_sharing--title">Choose your age <span class="LM_selected"></span></div>
+                <ul class="LM_info_sharing--options">                    
+                    <li><input type="radio" name="age_range" id="18 - 24"><label for="18 - 24">18 - 24</label></li>
+                    <li><input type="radio" name="age_range" id="25 - 34"><label for="25 - 34">25 - 34</label></li>
+                    <li><input type="radio" name="age_range" id="35 - 44"><label for="35 - 44">35 - 44</label></li>
+                    <li><input type="radio" name="age_range" id="45 - 54"><label for="45 - 54">45 - 54</label></li>
+                    <li><input type="radio" name="age_range" id="55 - 64"><label for="55 - 64">55 - 64</label></li>
+                    <li><input type="radio" name="age_range" id="65+"><label for="65+">65+</label></li>
+                    <li><input type="radio" name="age_range" id="13 - 17"><label for="13 - 17">13 - 17</label></li>
+                </ul>
+            </div>
+            <div class="LM_info_sharing--radiobuttons">
+                <input type="radio" name="marital_status" id="single">
+                <label for="single">Single</label>
+                <input type="radio" name="marital_status" id="married">
+                <label for="married">Married</label>
+            </div>
+        </div>
+	</div>
+	<div class="LM_policy_text LM_hidden">
+		<h3><b>PRIVACY POLICY</b></h3>
+    <p>LoopMe Ltd is committed to protecting consumer privacy and respecting your right to choice as it relates to advertising and the data used to help serve ads relevant to those consumers. LoopMe Ltd is a technology company that helps advertisers connect with consumers who are interested in, or could benefit from, the advertisers' products. Protecting consumer privacy is a top priority to LoopMe Ltd. See below for our complete privacy policy.<br />
+    &nbsp;<br />
+LoopMe Ltd ("we", "us", or "our") provides an online advertising and technology platform and services. We provide this privacy policy to inform you about how we collect and use data on our corporate website, which is located at www.loopme.com (the "Website"), and how our technology platform and related technology, such as pixels` ("Technology") processes information on behalf of online advertisers, website owners, data providers and other businesses that use our services (those publishers and online advertisers and their agencies who use our technology are defined as our "Clients"). This Privacy Policy does not apply to companies that LoopMe Ltd does not own or control, including LoopMe's Clients. To learn more about how LoopMe's Clients collect, use, and disclose information about consumers, please visit the Clients' privacy policies.<br />
+&nbsp;<br />
+If you have any questions about this privacy policy, please feel free to contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a6a68736c7b79635a767575756a777f3479757734">privacy@loopme.com</a><br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>PRIVACY PRACTICES FOR OUR TECHNOLOGY</b><br />
+&nbsp;<br />
+LoopMe runs a buying platform for media and data. LoopMe Technology allows our Clients to buy ad space on websites, in apps, and on other digital platforms, and allows for the use of proprietary and third party data in the purchase of that ad space. When ad space is bought or sold digitally (usually to an advertiser or ad agency by a publisher or other content provider) the Technology, fulfils the transaction by delivering the ad to internet and mobile users who visit that site, use that application, or watch certain videos (for example).<br />
+&nbsp;<br />
+Generally, an Internet user's computer, browser or device comes into contact with LoopMe when a user views an ad delivered or serviced by or with our Technology. Serving users relevant advertising is sometimes referred to as interest based advertising ("IBA").<br />
+&nbsp;</p>
+<p><em>WHAT INFORMATION DO WE COLLECT?</em></p>
+<li>Our Technology collects or receives information that may include, but is not limited to, your IP host address, the date and time of the ad request, specific location information of your device (which may be derived from, for example, your device's GPS, Bluetooth, or WiFi signals), pages viewed, browser type, the referring URL, Internet Service Provider, your operating system, device type, handset name, mobile identifiers such as apple IDFA and Android Advertising ID, application specific identifiers, as well as how you interact with a web page, application or advertisement.</li>
+<li>Predicted or actual data about a consumer such as age, gender, date of birth, income, education, interests, usage activity, from Clients or other third parties.</li>
+<li> Information about the possible relationships among different devices. For example, a tablet and laptop with similar characteristics such as IP address, user agent, font settings, screen resolution, and plug-ins may be assumed to belong to the same consumer.</li>
+<li> We may obtain the above information from other ad platforms, application platforms or providers, Clients or websites and services (including our Clients).</li>
+<p>&nbsp;<br />
+LoopMe may offer advertising solutions to clients that include the collection of voluntary personal information from you as part of an advertisement, e.g. serving an ad that contains an advertiser questionnaire. Such information may consist of personally identifiable information, non-personally identifiable information, or both. All of the information that you voluntarily provide in response to this form of advertisement is forwarded directly to the relevant Client and will be governed by that Client's privacy policies in place at the time of transfer. This information may be temporarily stored by LoopMe solely for the aforesaid purpose, subject to applicable legal requirements.</p>
+<p>&nbsp;<br />
+<em>HOW DO WE USE THE INFORMATION WE COLLECT?</em><br />
+LoopMe uses the information that we collect from your device to display advertising on your device, which may include interest-based advertising customised to an individual's inferred interests, preferences and locations and to perform analysis aimed at improving our services.</p>
+<p>&nbsp;<br />
+The information we collect from your device also helps us to provide filtering options for publishers and developers to manage ads appearing on their sites and in their apps, and to provide targeting options for advertisers. This helps our publishers and developer Clients, for example, to avoid presenting you ads that you have already seen, and helps our advertiser Clients serve advertisements that are more likely to be of interest to you.</p>
+<p>&nbsp;<br />
+LoopMe Ltd uses data to target and serve, or to help our Clients to target and serve, relevant advertising to consumers and to perform attribution analysis or other analytics regarding advertising audiences, as well as to compile, match and link audiences on behalf of Clients. For instance, we may, or help our Clients to, use this data to:</p>
+<li> Determine what ad to show a consumer, and customize ads to particular types of audiences</li>
+<li> Customize ads to the type of web page users are viewing</li>
+<li> Limit the number of times a consumer sees an ad or a type of ad</li>
+<li> Perform analysis of how effective the ads are</li>
+<li> Help Clients learn more about their own consumers</li>
+<li> Fraud detection and prevention</li>
+<li> Evaluate the probability and nature of connections between devices</li>
+<li> Client reporting, both in an aggregated and non-aggregated form</li>
+<li> Auditing, researching, troubleshooting and analysing data in order to maintain, protect, and improve our services and develop new services, and to ensure that our technologies function properly</li>
+<p>&nbsp;<br />
+<em>WHO DO WE SHARE INFORMATION WITH?</em><br />
+We share the information we collect to provide and improve LoopMe services, as well as to enable and allow for the improvement of related services provided by LoopMe Customers or other third party partners in connection with the LoopMe Services and across the broader advertising ecosystem, as follows:</p>
+<li> Primarily, we work with Clients and other third parties to help optimize ads and make them more likely to be relevant to consumers, by comparing, syncing and sharing the data described above. For instance, we may share to other ad platforms, customers or websites and services (including our Clients) data we have collected (generally, unique, identifiers representing consumers' devices), in order for these third parties to match their unique identifiers to our own, so that we can "sync" identifiers in order to help them show more relevant ads, match consumers to their likely interests, or better synchronize, cap, or otherwise optimize advertising.</li>
+<li> Further, the data we collect and receive may be processed on our behalf by third-party service providers that assist us in running our business, including providers of data storage and processing facilities.</li>
+<li> We may disclose your information to third parties when we reasonably believe we are obligated to do so by law, and in order to investigate, prevent, or take action regarding suspected or actual activities that may harm any person, our company, the Technology, or otherwise violate any law.</li>
+<li> Also, in the event LoopMe is merged into another company, or another company acquires all or substantially all of LoopMe's assets, including, without limitation, in the event of bankruptcy, all data compiled or owned by LoopMe may be among the items transferred in that transaction.</li>
+<li> We may share non-personal information with Clients, both in an aggregated and non-aggregated form, in connection with reporting and accounting needs as well as with other unaffiliated third parties for various purposes such as statistical or educational analysis (such as the creation of predictive models).</li>
+<p>&nbsp;</p>
+<p><em>HOW DO WE KEEP INFORMATION SECURE?</em><br />
+The security of your personal information is important to us. LoopMe uses reasonable physical, managerial, and technical safeguards to prevent loss, misuse, and unauthorized access, disclosure, destruction and alteration of the information that our Technology collects. Please be aware, however, that no data security measures can be guaranteed to be completely effective. Consequently, LoopMe cannot ensure or warrant the security of collected data or other information. In particular, we cannot guarantee that collected data or other information will not be disclosed, altered, or accessed in accidental circumstances or by unauthorized or unlawful acts of others.<br />
+&nbsp;<br />
+<em>HOW LONG DO WE KEEP INFORMATION FOR?</em><br />
+LoopMe retains data collected via our Technology for up to eighteen months. After 18 months (or sooner) the data is stored in aggregate and may be kept longer for applicable legal, tax or accounting reasons.<br />
+&nbsp;<br />
+<em>INTEREST-BASED ADVERTISING AND OPTING OUT</em><br />
+LoopMe uses cookies, web beacons, pixels and other technologies to collect web viewing data across non-affiliated sites over time. In addition, LoopMe collects app usage data across non-affiliated apps over time. We may also collect such Web viewing and app usage data from other ad platforms, application platforms or providers, customers or websites and services (including our Clients) and we may combine this information with any information that we have collected about you. We use this data to infer your interests and to provide more relevant advertising to you. This is known as Interest-Based Advertising ("IBA").</p>
+<p>&nbsp;<br />
+We may also facilitate our Clients' efforts to place a cookie or other tracking technology on a website with which our Client has a relationship, and we may allow our Clients to collect information about your web viewing behaviour on our website. This information may be combined with other data collected from other websites over time for IBA purposes.</p>
+<p>&nbsp;<br />
+LoopMe follows the Digital Advertising Alliance ("DAA") Self-Regulatory Principles and the Network Advertising Initiative ("NAI") Code of Conduct. LoopMe is a member of the IAB (Internet Advertising Bureau) in the UK. As a member of IAB UK, we are permitted to direct end users to the following website (http://www.youronlinechoices.com) which describes detailed steps on how to opt-out from cookies for data collection and ad targeting when using mobile sites only.<br />
+&nbsp;<br />
+To effectively opt-out of our cross-device data collection activities, you must opt-out on every device browser and device using the appropriate opt-out methods.</p>
+<p>&nbsp;<br />
+If you'd like to opt-out from having LoopMe use your web viewing data and other information for web-based IBA purposes, the DAA and NAI provide websites where you can learn more about IBA and opt out of receiving targeted ads from our advertising partners who participate in the DAA or NAI programs. You can access these websites at www.aboutads.info/choices and at www.networkadvertising.org/choices. Residents of the EEA and Switzerland may visit www.youronlinechoices.com.If you are located in Canada, you can access this information at http://youradchoices.ca/choices/.</p>
+<p>&nbsp;<br />
+If you are using a mobile device, you may be able to opt out of receiving IBA by LoopMe based on app usage data, through your device settings as described below. We provide the following descriptions solely for informational purposes. For additional information and up to date methods of opting out, you should consult your device settings, and instructions provided by device manufacturers. Additional information can be found at https://www.networkadvertising.org/understanding-online-advertising/what-are-my-options.<br />
+&nbsp;</p>
+<ul>
+<ul>
+<ul>
+<em>Opting Out on Android</em><br />
+If you have an Android device and would like to opt out of our interest based advertising services, you may do this as follows:</p>
+<li>Open Google Settings app on your device</li>
+<li>Tap on Ads</li>
+<li>You need to manage Opt-out of interest-based ads</li>
+<li>If the box is checked, uncheck it to disable interest-based ads</li>
+<li>If the box is unchecked, select it in order to enable interest-based ads</li>
+<p>To update your cookie setting:</p>
+<li>Open a mobile browser app</li>
+<li>Tap on the Menu key</li>
+<li>From the options for the current application that is running select More</li>
+<li>From the list of browser functions select the Settings</li>
+<li>Scroll down until you find the Accept cookies</li>
+<li>If the box is checked, uncheck it to disable cookies</li>
+<p>If the box is unchecked, select it in order to enable cookies<br />
+You should consult Google's support web pages and instructions for the most current applicable settings.<br />
+&nbsp;<br />
+<em>Opting Out on iOS</em><br />
+If you have an IOS device and would like to opt out of our interest based advertising services, you may do this as follows:<br />
+For iOS 6 or higher<br />
+To update your IDFA setting:</p>
+<li>Choose Settings > Privacy > Advertising</li>
+<li>Turn Limit Ad Tracking On (Off is the default setting)</li>
+<p>To update your cookie setting:</p>
+<li>Choose Settings > Safari > Block Cookies</li>
+<li>Choose Always / From third parties and advertisers / Never</li>
+<p>You should consult Apple's support web pages and instructions for the most current applicable settings.<br />
+Please note that these settings do not block ads, but rather will not base ads on your interests.<br />
+&nbsp;<br />
+<em>Mobile Application Opt-Out</em><br />
+If you would like LoopMe to stop collecting device data interest based advertising in your mobile applications, please download the DAA's AppChoices tool (http://youradchoices.com/appchoices)for your mobile operating system and opt-out through the application.<br />
+&nbsp;<br />
+<em>Web Browser Opt-Out</em><br />
+Please visit, the DAA and NAI websites where you can learn more about IBA and opt out of receiving targeted ads from our advertising partners who participate in the DAA or NAI programs. You can access these websites at www.aboutads.info/choices and at www.networkadvertising.org/choices. Residents of the EEA and Switzerland may visit http://www.youronlinechoices.eu/. If you are located in Canada, you can access this information at http://youradchoices.ca/choices/.
+</ul>
+</ul>
+</ul>
+<p>&nbsp;<br />
+We make best effort to provide a persistent opt-out for online display and, independently, for mobile web. This opt-out must be performed on each device and browser that you want to be opted out on. For example, if you want to opt-out on your computer browser as well as your mobile device browser, you will need to click on the link above in both your computer browser as well as your mobile device browser.<br />
+The above opt-out will only be enabled if you are accessing it from a Javascript-enabled browser and third-party cookies are enabled. These two technologies are required for us to provide a persistent opt-out. Other technologies, such as HTML5 local storage, may also be used in order to make opt-out as persistent as possible.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>PRIVACY PRACTICES LOOPME WEBSITE</b><br />
+This privacy policy describes how LoopMe Ltd collects and uses the personal information you provide on our corporate website and account tools, including any website on which this Privacy Policy appears, or otherwise to LoopMe Ltd through your contact with us, our employees and our contractors.<br />
+&nbsp;</p>
+<p><em>WHAT INFORMATION DO WE COLLECT?</em><br />
+We collect information from you including activity and usage data from the LoopMe website and any email you may send us or that you may respond to one of our email newsletters or other emails that we may send to you from time to time-related to our products and services.<br />
+&nbsp;</p>
+<p>We collect personal information from you every time you enter data into online forms on the LoopMe website, contact us with questions regarding our service or to request a demonstration of our product and make other opportunities available that ask individuals to provide personal information such as their name and email address. You may also provide personal information when you request a whitepaper, enter a contest or sweepstakes run by LoopMe and may provide our employees with your business card, or provide information for billing and other business purposes.<br />
+&nbsp;</p>
+<p>If you choose to create an account on the LoopMe website we collect your username, password, email address, country, preferred account type and may collect billing information when you register. For users that register an account with LoopMe, our server logs also automatically collect user information such as users' IP addresses, pages users access, browser type and language, and the date and time of visits, which helps LoopMe track use of the Site and understand trends.<br />
+&nbsp;</p>
+<p>You can also provide us with other optional information, such as your name, picture, postal address, phone number, social network profiles, questionnaire responses, general business information, and other personal, biographical, or demographic info. This optional information is not necessary for you to use the LoopMe website or to maintain an account with us, but by sharing this information, we can better serve you and improve your overall website experience.<br />
+&nbsp;</p>
+<p>We and/or our selected third-party partners may also collect data about visitors' activities on this Website and across the Internet over time for non-advertising purposes, including to conduct analytics, measure trends, and streamline website usability. The technologies used for this purpose may include log files, cookies, web beacons, and social media plug-ins. One of the service providers we may use is Google Analytics. To learn more about how Google Analytics collects and processes data and the choices you may have to control these activities, you may visit https://www.google.com/policies/privacy/.<br />
+&nbsp;</p>
+<p><em>HOW DO WE USE THE INFORMATION WE COLLECT?</em><br />
+Personal Information collected on our website shall be used for the purposes disclosed at the time of collection, and may be used for marketing purposes relating to our products or services. Information collected for billing and related purposes shall be used for the purposes disclosed at the time of collection, as well as credit checks, invoicing, collection, troubleshooting, account maintenance, notifying major site and service updates, and other related business purposes.<br />
+&nbsp;</p>
+<p>Non-personal information collected on our website shall be used for improving website experience and identifying trends, promotional and other related business purposes.<br />
+&nbsp;</p>
+<p><em>WHO DO WE SHARE INFORMATION WITH?</em><br />
+We will share your personal information only in the ways that are described in this privacy policy. We do not sell your personal information to third parties.<br />
+&nbsp;</p>
+<p>From time to time, we may need to disclose your information to third parties such as to law enforcement authorities or our legal advisers, where it is necessary to comply with the law or regulation; enforce or apply our user terms and conditions; to protect our rights, or to preserve the safety of our users. This may include exchanging information with other companies and organisations for fraud protection.<br />
+We may also share your personal information with companies that provide services to help us with our business activities (e.g. processing payments or submitting emails to you on our behalf), in connection with any merger, a sale of LoopMe assets, or a financing or acquisition of all or a portion of our business to another company. Whenever we share your personal information for this reason, we will ensure that the recipient is bound by all appropriate confidentiality obligations and that it commits to using your personal information only for the purposes for which you originally provided it.<br />
+&nbsp;</p>
+<p>You should also be aware that the information submitted to public areas, such as our blogs, may be read, collected, and used by others who access them.<br />
+&nbsp;</p>
+<p>If you interact with social media features on our site, these features may collect information about your use of this site as well as post information about your activities on this site to your profile page. Your interactions with these features are governed by the privacy policy of the company providing it.<br />
+&nbsp;<br />
+<em>THIRD-PARTY WEBSITES</em><br />
+The LoopMe Website may contain links to and advertisements for websites operated by third parties whose privacy practices may differ from ours. While we endeavour to associate only with reputable entities, LoopMe Ltd is not responsible for the privacy practices of these other websites. We encourage you to check the privacy policies of all websites that you visit.<br />
+&nbsp;<br />
+<em>THIRD PARTY ADVERTISERS</em><br />
+We may allow certain third parties to collect data about your web viewing behaviour on the LoopMe Ltd website and combine this data with information collected from other websites over time for purposes that include interest-based advertising. If you would like to learn more about this type of advertising, or would prefer to opt-out of interest-based advertising, U.S. residents may visit www.aboutads.info/choices or www.networkadvertising.org/choices, European residents may visit www.youronlinechoices.com, and Canadian residents may visit http://youradchoices.ca/choices/. These websites allow you to opt-out of interest-based advertising by companies participating in these self-regulatory programs. Please </p>
+<p>To learn more about how to opt-out of interest-based advertising by LoopMe, please see section "INTEREST-BASED ADVERTISING AND OPTING OUT".<br />
+&nbsp;</p>
+<p><em>HOW DO WE KEEP INFORMATION SECURE?</em><br />
+The security of your personal and non-personal information is important to us. LoopMe has uses reasonable physical, managerial, and technical safeguards to prevent loss, misuse, and unauthorized access, disclosure, destruction and alteration of the information that our websites collect.<br />
+Please be aware, however, that no data security measures can be guaranteed to be completely effective. Consequently, LoopMe cannot ensure or warrant the security of collected data or other information. In particular, we cannot guarantee that collected data or other information will not be disclosed, altered, or accessed in accidental circumstances or by unauthorized or unlawful acts of others.<br />
+&nbsp;<br />
+<em>HOW LONG DO WE KEEP THIS INFORMATION FOR?</em><br />
+LoopMe Ltd retains personal information we collect from you as long as we have an ongoing legitimate business need to do so (for example, to provide you with a service you have requested or to comply with applicable legal, tax or accounting requirements, resolve disputes and enforce our agreements).<br />
+LoopMe Ltd retains non-personal information as long as is legitimately necessary or no longer than eighteen (18) months.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>LEGAL BASIS FOR PROCESSING (EEA and Switzerland visitors only)</b><br />
+If you are a visitor from the European Economic Area (EEA) and Switzerland, our legal basis for collecting and processing the information described above will depend on the information concerned and the specific context in which we collect and process it. We collect and process information from you only where we have your consent (Art. 6 para 1 lit. a) GDPR), where we need the information to provide our contractual obligation to you (Art. 6 para 1 lit. b) GDPR) or where we have a legitimate interest to do so.<br />
+&nbsp;</p>
+<p>If you wish to learn more about specific legal ground(s) we rely on to process your information for any particular purpose (including any legitimate interests we have to process information), then please contact us using the details provided below under "Contacting Us". However, by way of example, we rely on our legitimate interests to process information for fraud prevention and detection, provided these interests are not overridden by your data protection interests or fundamental rights and freedoms (Art. 6 para 1 lit. f) GDPR).<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>INTERNATIONAL TRANSFERS</b><br />
+The LoopMe Ltd operates its Technology from servers located in the EU and United States and the information it collects through clients is processed solely in the EU. Laws governing the collection and use of data in the EU or United States may not be equivalent to those in the country where you reside, but LoopMe Ltd will at all times protect your data in accordance with this Privacy Policy.<br />
+We may share your information with our affiliates and other third parties described above who are based in countries outside of your country of residence. While some countries may not have data protection laws that are equivalent to those of the country in which you reside, we will take all reasonable measures to protect your information in accordance with this Privacy Policy and all applicable legal requirements.<br />
+If any of the recipients is located in a country without the adequate legal protection or safeguards for personal data, LoopMe will make reasonable efforts so the recipient adopts the principles described in this Privacy Policy.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>CHILDREN</b><br />
+LoopMe complies with the Children's Online Privacy Protection Act (COPPA) and does not knowingly collect personal information from children under the age of thirteen (13) or from websites or online services directed to children under the age of thirteen (13).<br />
+&nbsp;</p>
+<p>If you are a visitor from the European Economic Area (EEA) and Switzerland, LoopMe does not process the personal data of a child younger than 16 years old. LoopMe makes reasonable efforts to verify in such cases that consent is given or authorised by the holder of parental responsibility over the child, taking into consideration available technology.<br />
+&nbsp;<br />
+Consumers should not create LoopMe accounts on our Website, unless they are legally old enough to from a binding contract and in any case are 16 years of age or older. In the unlikely event that you are the parent or legal guardian of a child under 16, who has registered with the Site or Services, please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d0d0f140b1c1e043d1112120d1018531e1210">privacy@loopme.com</a> to have your child's personal information deleted.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>SENSITIVE PERSONAL DATA</b><br />
+We do not knowingly collect or obtain from third parties, any personal data, including any "Sensitive Personal Data," for IBA purposes, as defined under Directive 95/46/EC and General Data Protection Regulation (GDPR). "Sensitive Personal Data" are personal data, revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership; data concerning health or sex life and sexual orientation; genetic data or biometric data.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>YOUR RIGHTS</b></p>
+<li> You have the right to access the information that LoopMe Ltd maintains about you, request deletion of your data, update your data, object to processing of your personal information, ask us to restrict processing of your personal information or request portability of your personal information and you correct or amend that information if it is inaccurate or has been processed in violation of privacy laws, to the extent allowed by law, including the General Data Protection Regulation (GDPR).
+<li> If we have collected and processed your personal information with your consent, then you can withdraw your consent at any time. Withdrawing your consent will not affect the lawfulness of any processing we conducted prior to your withdrawal, nor will it affect processing of your personal information conducted in reliance on lawful processing grounds other than consent.</li>
+<li> You have the right to opt-out from our marketing communications at any time. You can exercise this right by clicking on the "unsubscribe" or "opt-out" link in the marketing e-mails we send you. To opt-out of other forms of marketing (such as postal marketing or telemarketing), please contact us using the contact details provided under the "Contacting Us" heading below.</li>
+<li> You have the right to complain to a data protection authority about our collection and use of your personal information. For more information, please contact your local data protection authority. We respond to all requests we receive from individuals wishing to exercise their data protection rights in accordance with applicable data protection laws.</li>
+<p>To exercise these rights, please email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="09797b607f686a704965666679646c276a666427">privacy@loopme.com</a><br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>CHANGES IN CORPORATE STRUCTURE</b><br />
+In the event that LoopMe Ltd is involved in a bankruptcy, merger, acquisition, reorganization or sale of assets, your information may be sold or transferred as part of that transaction. The promises in this Privacy Policy will apply to your information as transferred to the new entity.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>CHANGES TO THE PRIVACY POLICY</b><br />
+LoopMe Ltd may revise this policy at any time. Any changes and/or updates to the policy will be updated directly on this page. We encourage you to visit this page periodically to review our current privacy policy so that you will always know what information we gather and how we may use that information.<br />
+&nbsp;<br />
+&nbsp;</p>
+<p><b>CONTACTING US</b><br />
+If you have any questions about this Privacy Policy, please contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98e8eaf1eef9fbe1d8f4f7f7e8f5fdb6fbf7f5b6">privacy@loopme.com</a><br />
+LoopMe commits to resolve complaints about our collection or use of your personal data. Inquiries or complaints regarding this Privacy Policy should first contact LoopMe at:</p>
+<ul>
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2a5a58435c4b49536a4645455a474f04494547">privacy@loopme.com</a><br />
+LoopMe Ltd<br />
+Ground Floor, 32-38 Saffron Hill<br />
+London EC1N 8FH<br />
+United Kingdom</ul>
+	</div>
+	<footer class="LM_footer">
+		<div class="LM_policy_button">
+			Privacy Policy &gt;
+		</div>
+        <button class="LM_policy_close">
+            Back
+        </button>
+		<button class="LM_finish" disabled>
+			Finish
+		</button>
+		<div class="LM_footer_text">By answering this survey, I agree to share my data with LoopMe.</div>
+	</footer>
+	<div class="LM_countdown"></div>
+</div>
+</body>
+<script>
+    window.L = window.L || {
+        webview: {
+            on: function(){},
+            close: function(){}
+        },
+        track: function (obj) {console.log("Track: ", JSON.stringify(obj))},
+        trackOnce: function (obj) {console.log("Track: ", JSON.stringify(obj))}
+    };
+</script>
+<script type="text/javascript">
+    var isQuestionnaireInited = false;
+    if (L.webview.state) {
+        L.webview.on("VISIBLE", function() {
+            L.trackOnce({
+                eventType: "PAGE_1"
+            });
+            setTimeout(function() {
+                L.trackOnce({
+                    eventType: "AD_VIEWABLE"
+                });
+            }, 1000);
+            if (!isQuestionnaireInited) {
+                var questionnaire = new Questionnaire(survey);
+                isQuestionnaireInited = true;
+            }
+        });
+    } else {
+        if (!isQuestionnaireInited) {
+            var questionnaire = new Questionnaire(survey);
+            isQuestionnaireInited = true;
+        }
+    }
+
+    function shuffle(arr) {
+        var counter = arr.length;
+        while (counter > 0) {
+            var index = Math.floor(Math.random() * counter);
+            counter--;
+            var temp = arr[counter];
+            arr[counter] = arr[index];
+            arr[index] = temp;
+        }
+        return arr;
+    }
+
+    function Questionnaire(survey) {
+        var countdown,
+            countdownTo = 0,
+            creativeName = "LM_survey",
+            surveys,
+            currentSurvey = 1,
+            newQuestions,
+            isThankYouPageShown = false,
+            autoCloseTimerId,
+            extraInfo = {},
+            SHOW_NEXT_PAGE_DELAY = 100;
+
+        newQuestions = survey.questions.map(function(question, idx) {
+            var generateAnswerId = function(text, idx) {
+                return text.toLowerCase().split(" ").join("_") + `_${idx + 1}`;
+            }
+            var randAnswers = shouldRandomizeAnswersOrder ? shuffle(question.answers) : question.answers;
+            var answers = randAnswers.map(function(answer) {
+                var answerId = generateAnswerId(answer.text, idx);
+                return '<li><input type="radio" name="radio-group" id="' + answerId +'"><label for="' + answerId + 
+                    '" data-survey-outcome="' + 
+                    answer.outcome + '" data-custom-event-name="' + 
+                    answerId + 
+                    '">'+ answer.text + '</label></li>';
+            }).join('');
+            return ['',
+                '<div class="LM_survey LM_survey_', (idx + 1), '" data-answers-number="', (question.answers.length), '">',
+                '	<p class="LM_title">',
+                question.text,
+                '    </p>',
+                '	<ul class="LM_questionnaire">',
+                answers,
+                '	</ul>',
+                '</div>'].join('');
+        }).join('');
+        document.querySelector(".questions").innerHTML = newQuestions;
+        document.querySelector(".LM_survey_1").style.display = "block";
+        surveys = document.querySelectorAll('.LM_questionnaire');
+        document.querySelector(".LM_select select").selectedIndex = -1;
+        if(L.isAndroid && !L.isIFrame) {
+            document.querySelector(".LM_info_sharing--android_select").style.display = "inline-block";
+            document.querySelector(".LM_info_sharing--age_select").style.display = "none";
+        }
+        updateProgressBar();
+
+        function updateProgressBar() {
+            document.querySelector(".LM_progressbar > div").style.width = currentSurvey/surveys.length*100 + "%";
+        }
+
+        function countTextLines(string, lineWidth) {
+            return Math.ceil(string.length/lineWidth);
+        }
+
+        for (var i = 0; i < surveys.length; i++) {
+            surveys[i].addEventListener('click', answerClick);
+        }
+
+        // initial pagination setup (should be refactored later)
+        if (surveys.length === 1) {
+            document.querySelector(".LM_pages").style.display = "none";
+            document.querySelector(".LM_html_container").classList.add("LM_single");
+        } else {
+            document.querySelector(".LM_pages_total").innerText = surveys.length;
+            document.querySelector(".LM_current_page").innerText = currentSurvey;
+        }
+
+        document.querySelector(".LM_policy_button").addEventListener("click", onPrivacyButtonClick);
+        document.querySelector(".LM_policy_close").addEventListener("click", onPrivacyCloseClick);
+        document.querySelector(".LM_finish").addEventListener("click", onFinishButtonClick);
+        document.querySelector(".LM_feedback").addEventListener("click", onThankYouPageClick);
+        document.querySelector(".LM_info_sharing--overlay").addEventListener("click", hideAgeSelectLightBox);
+        document.querySelector(".LM_info_sharing--options").addEventListener("click", onAgeSelectOptionClick);
+        document.querySelector(".LM_info_sharing--age_select").addEventListener("change", function(e) {
+            document.querySelector(".LM_finish").disabled = false;
+        });
+        if (L.isAndroid && !L.isIFrame) {
+            document.querySelector(".LM_info_sharing--title").addEventListener("click", onAgeChooseClick);
+        }
+
+        function showNextQuestion() {
+            setTimeout(function() {
+                document.querySelector(".LM_survey_" + currentSurvey).style.display = "none";
+                currentSurvey++;
+                document.querySelector(".LM_survey_" + currentSurvey).style.display = "block";
+                document.querySelector('.LM_current_page').innerText = currentSurvey;
+                updateProgressBar();
+                L.trackOnce({
+                    eventType: "PAGE_" + currentSurvey
+                });
+            }, SHOW_NEXT_PAGE_DELAY)            
+        }
+
+        function answerClick(e) {
+            var target = e.target;
+
+            if (target.dataset.customEventName) {
+                var outcomeParameter = target.dataset.surveyOutcome ? '&survey_outcome=' + target.dataset.surveyOutcome.toUpperCase() : '';
+                L.track({
+                    eventType: "INTERACTION",
+                    customEventName: creativeName + "&mode=" + target.dataset.customEventName.toUpperCase() + outcomeParameter
+                });
+
+                if (currentSurvey < surveys.length) {
+                   showNextQuestion();
+                } else {
+                    if (hasThankYouPage) {
+                        showThankYouPage(SHOW_NEXT_PAGE_DELAY);
+                        autoCloseAd(10000);
+                    } else {
+                        autoCloseAd(100);
+                    }
+                }
+
+            }
+        }
+
+        function addCloseButton() {
+            var closeButtonTemplate = "<div class='LM_close'>&nbsp;</div>";
+
+            if (!document.querySelector(".LM_close")) {
+                document.querySelector("body").insertAdjacentHTML("afterbegin", closeButtonTemplate);
+                document.querySelector(".LM_close").addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    if (!window.L) {
+                        return false;
+                    }
+                    L.webview.close();
+                }, false);
+            } else {
+                document.querySelector(".LM_close").style.display = 'block';
+            }
+        }
+
+        function autoCloseAd (autoCloseTime) {
+            autoCloseTimerId = setTimeout(function() {
+                console.log("close");
+                L.webview.close();
+            }, autoCloseTime);
+        }
+
+        function showThankYouPage(show_thank_you_page_delay) {
+            setTimeout(function() {
+                isThankYouPageShown = true;
+                document.querySelector(".questions").style.display = "none";
+                document.querySelector(".LM_survey_" + currentSurvey).style.display = "none";
+                document.querySelector(".LM_pages").style.display = "none";
+                document.querySelector('.LM_feedback').style.display = "block";
+                document.querySelector('.LM_finish').style.display = "block";
+
+                L.trackOnce({
+                    eventType: "CUSTOM",
+                    customEventName: creativeName + "&mode=TY_PAGE"
+                });
+            }, show_thank_you_page_delay)            
+        }
+
+        function onThankYouPageClick(e) {
+            if (e.target.tagName === "INPUT" || (e.target.tagName === "SELECT" && e.target.selectedIndex !== -1)) {
+                document.querySelector(".LM_finish").disabled = false;
+            }
+            clearTimeout(autoCloseTimerId);
+        }
+
+        function showAgeSelectLightBox() {
+            document.querySelector(".LM_info_sharing--overlay").style.display = "block";
+            document.querySelector(".LM_info_sharing--options").style.display = "block";
+        }
+
+        function hideAgeSelectLightBox() {
+            document.querySelector(".LM_info_sharing--overlay").style.display = "none";
+            document.querySelector(".LM_info_sharing--options").style.display = "none";
+        }
+
+        function onAgeChooseClick() {
+            showAgeSelectLightBox();
+        }
+
+        function onAgeSelectOptionClick(e) {
+            if (e.target.tagName === "LABEL") {
+                document.querySelector(".LM_selected").innerText = e.target.innerText;
+                hideAgeSelectLightBox();
+            }
+        }
+
+        function collectExtraStatistic() {
+            var select = document.querySelector(".LM_info_sharing--age_select select"),
+                selectedIdx = select.selectedIndex;
+            Array.from(document.querySelectorAll(".LM_info_sharing input")).filter(function(item) {
+                if (item.checked) {
+                    extraInfo[item.name] = item.id.replace(/\s+/g,'');
+                }
+            });
+            if (selectedIdx !== -1) {
+                selectedValue = document.querySelectorAll(".LM_info_sharing--age_select option")[selectedIdx].innerText;
+                extraInfo.age_range = selectedValue.replace(/\s+/g,'');
+            }
+        }
+
+        function sendExtraStatistic() {
+            collectExtraStatistic();
+            var extraParametersString = "&eu_gdpr&user_consent";
+            for (extraField in extraInfo) {
+                extraParametersString += "&survey." + extraField + "=" + extraInfo[extraField];
+            }
+            L.track({
+                eventType: "SURVEY",
+                customEventName: creativeName + extraParametersString
+            })
+        }
+ 
+        function onFinishButtonClick() {
+            sendExtraStatistic();
+            L.webview.close();
+        }
+
+        function showCountdown() {
+            countdown = window.setInterval(function() {
+                closeButtonDelay -= 1;
+                if (closeButtonDelay === countdownTo) {
+                    clearInterval(countdown);
+                    document.querySelector(".LM_countdown").style.display = "none";
+                    addCloseButton();
+                }
+                document.querySelector(".LM_countdown").innerHTML = closeButtonDelay;
+            }, 1000);
+        }
+
+        function onPrivacyButtonClick(e) {
+            clearTimeout(autoCloseTimerId);
+            document.querySelector(".LM_policy_button").style.display = "none";
+            document.querySelector(".questions").style.display = "none";
+            document.querySelector(".LM_survey_" + currentSurvey).style.display = "none";
+            document.querySelector('.LM_feedback').style.display = 'none';
+            document.querySelector(".LM_policy_text").style.display = "block";
+            document.querySelector(".LM_policy_close").style.display = "block";
+            document.querySelector(".LM_finish").style.display = "none";
+            document.querySelector(".LM_pages").style.display = "none";
+            document.querySelector(".LM_progressbar > div").style.width = "100%";
+            L.track({
+                eventType: "INTERACTION",
+                customEventName: creativeName + "&mode=POLICY_OPENED"
+            });
+        }
+
+        function onPrivacyCloseClick(e) {
+            document.querySelector(".LM_policy_close").style.display = "none";
+            document.querySelector(".LM_policy_text").style.display = "none";
+            document.querySelector(".LM_policy_close").style.display = "none";
+            document.querySelector(".LM_policy_button").style.display = "block";
+            if (surveys.length > 1) {
+                document.querySelector(".LM_pages").style.display = "block";
+            }
+            updateProgressBar();
+            L.track({
+                eventType: "INTERACTION",
+                customEventName: creativeName + "&mode=POLICY_CLOSED"
+            });
+            if (isThankYouPageShown) {
+                showThankYouPage(0);
+                document.querySelector(".LM_finish").style.display = "block";
+            } else {
+                document.querySelector(".questions").style.display = "block";
+                document.querySelector(".LM_survey_" + currentSurvey).style.display = "block";
+            }
+        }
+
+        if (closeButtonDelay > 0) {
+            showCountdown();
+        } else {
+            addCloseButton();
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        if(L.isIFrame) {
+            document.querySelector(".LM_html_container").classList.add("LM_web");
+        }
+    })
+</script>
+</html>
